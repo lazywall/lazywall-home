@@ -26,7 +26,7 @@ h1,h2,h3{font-family:Oswald,Impact,sans-serif;text-transform:uppercase;letter-sp
 .btn.fill{background:var(--ember);color:#150a05}
 .btn.fill:hover{background:var(--gold);border-color:var(--gold)}
 .btn.line:hover{background:var(--ember);color:#150a05}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+nav{position:absolute;top:0;left:0;right:0;z-index:50}
 nav.solid{background:rgba(14,10,8,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
 nav .logo img{height:30px;width:auto}
@@ -40,7 +40,7 @@ nav ul a.pro{border:1px solid var(--line);padding:9px 14px;opacity:1;color:var(-
 .hero .photo{position:absolute;top:0;right:0;bottom:0;width:52%;background-size:cover;background-position:center 18%;opacity:.85;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 42%);mask-image:linear-gradient(90deg,transparent 0,#000 42%)}
 .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(0deg,rgba(232,89,12,.26),transparent)}
 .pattern{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg fill='none' stroke='%23d9a441' stroke-width='1.2'%3E%3Cpath d='M45 5 54 24 75 15 66 36 85 45 66 54 75 75 54 66 45 85 36 66 15 75 24 54 5 45 24 36 15 15 36 24Z'/%3E%3Ccircle cx='45' cy='45' r='9'/%3E%3C/g%3E%3C/svg%3E")}
-.hero .in{position:relative;z-index:2;padding:90px 28px 80px;max-width:1180px;margin:0 auto;width:100%}
+.hero .in{position:relative;z-index:2;padding:130px 28px 80px;max-width:1180px;margin:0 auto;width:100%}
 .hero h1{font-size:clamp(44px,7vw,96px);margin:22px 0 22px;max-width:700px}
 .hero h1 em{font:italic 500 1.12em/.9 "Cormorant Garamond",serif;color:var(--ember);text-transform:none;letter-spacing:0}
 .hero p.tag{font-size:clamp(22px,2.4vw,30px);line-height:1.25;max-width:520px;color:var(--sand)}
@@ -106,7 +106,7 @@ footer .l{display:flex;gap:22px;flex-wrap:wrap}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
 .rv.on{opacity:1;transform:none}
 @media(max-width:900px){
- nav ul{position:fixed;inset:74px 0 auto 0;background:var(--bg);flex-direction:column;align-items:stretch;gap:0;padding:8px 28px 20px;border-bottom:1px solid var(--line);display:none}
+ nav ul{position:absolute;inset:74px 0 auto 0;background:var(--bg);flex-direction:column;align-items:stretch;gap:0;padding:8px 28px 20px;border-bottom:1px solid var(--line);display:none}
  nav ul.open{display:flex}nav ul li{padding:14px 0;border-bottom:1px solid var(--line)}
  nav ul a.pro{border:0;padding:0}
  .burger{display:block}
@@ -122,6 +122,21 @@ footer .l{display:flex;gap:22px;flex-wrap:wrap}
 </style>
 </head>
 <body>
+
+<nav id="nav"><div class="wrap">
+ <a class="logo" href="https://lazywall.com/home"><img src="https://images.zoogletools.com/s:bzglfiles/u/586824/55e5c1a7fc431817c111153e139b7f74d271f471/original/lazywall-logo-white.png/!!/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.png" alt="Lazywall"></a>
+ <ul id="menu">
+  <li><a href="https://story.lazywall.com/">The Series</a></li>
+  <li><a href="https://lazywall.com/timeline">Timeline</a></li>
+  <li><a href="https://lazywall.com/music">Music</a></li>
+  <li><a href="https://lazywall.com/video">Video</a></li>
+  <li><a href="https://lazywall.com/photos">Photos</a></li>
+  <li><a href="https://lazywall.com/store">Store</a></li>
+  <li><a href="https://lazywall.com/bookings">Booking</a></li>
+  <li><a class="pro" href="https://lazywall.com/epk">For pros</a></li>
+ </ul>
+ <button class="burger" id="burger" aria-label="Menu">☰</button>
+</div></nav>
 
 <header class="hero" id="top">
  <div class="pattern"></div>
@@ -214,9 +229,11 @@ footer .l{display:flex;gap:22px;flex-wrap:wrap}
 
 <script>
 (function(){
+ var m=document.getElementById('menu');
+ document.getElementById('burger').onclick=function(){m.classList.toggle('open')};
  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.target='_self'});
  // tell the parent page (Bandzoogle) how tall this page is
- function sendH(){try{parent.postMessage({lazywallHeight:document.documentElement.scrollHeight},'*')}catch(e){}}
+ function sendH(){try{var f=document.querySelector('footer');var h=Math.ceil(f.getBoundingClientRect().bottom+window.scrollY);parent.postMessage({lazywallHeight:h},'*')}catch(e){}}
  addEventListener('load',sendH);addEventListener('resize',sendH);
  if(window.ResizeObserver){new ResizeObserver(sendH).observe(document.body)}
  // episodes: 18:00 Morocco time (UTC+1) => 17:00 UTC
