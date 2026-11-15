@@ -253,5 +253,5 @@ nav ul a.pro{border-radius:999px}
 
 /* festival background */
 .shows.stage{position:relative;overflow:hidden}
-.shows.stage:before{content:"";position:absolute;left:0;right:0;top:0;height:520px;background:linear-gradient(180deg,rgba(20,17,31,.35) 0%,rgba(20,17,31,.55) 45%,var(--bg2) 100%),url(img/scene-festival.webp) 50% 40%/cover no-repeat}
+.shows.stage:before{content:"";position:absolute;left:0;right:0;top:0;height:520px;background:linear-gradient(180deg,rgba(20,17,31,.35) 0%,rgba(20,17,31,.55) 45%,var(--bg2) 100%),url(img/scene-festival.webp) 50% 76%/cover no-repeat}
 .shows.stage>.wrap{position:relative;z-index:1}
