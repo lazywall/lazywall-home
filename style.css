@@ -153,3 +153,16 @@ nav ul a.on{color:var(--gold);opacity:1}
 .covers span{font:500 12px Inter;color:var(--mute)}
 @media(max-width:900px){.covers{grid-template-columns:repeat(4,1fr)}.trk em{opacity:1}.trk span{font-size:20px}}
 @media(max-width:560px){.covers{grid-template-columns:repeat(2,1fr)}}
+
+/* video wall */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.chip{font:600 12px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);background:none;border:1px solid var(--line);padding:12px 22px;cursor:pointer;transition:.25s}
+.chip:hover{border-color:var(--ember)}
+.chip.on{background:var(--ember);border-color:var(--ember);color:#fff}
+.vwall{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 22px}
+.vc{margin:0}
+.vc figcaption{padding-top:12px}
+.vc b{display:block;font:500 20px Oswald,sans-serif;letter-spacing:.03em;text-transform:uppercase}
+.vc span{font-size:14px;color:var(--mute)}
+@media(max-width:900px){.vwall{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.vwall{grid-template-columns:1fr}}
