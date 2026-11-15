@@ -166,3 +166,11 @@ nav ul a.on{color:var(--gold);opacity:1}
 .vc span{font-size:14px;color:var(--mute)}
 @media(max-width:900px){.vwall{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.vwall{grid-template-columns:1fr}}
+
+/* photo masonry */
+.mason{column-count:3;column-gap:16px}
+.mason a{display:block;margin-bottom:16px;break-inside:avoid;overflow:hidden;border:1px solid var(--line)}
+.mason img{width:100%;display:block;transition:transform .5s,opacity .3s}
+.mason a:hover img{transform:scale(1.04);opacity:.9}
+@media(max-width:900px){.mason{column-count:2}}
+@media(max-width:560px){.mason{column-count:1}}
