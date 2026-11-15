@@ -55,6 +55,10 @@
 @media(max-width:820px){.sbox{grid-template-columns:1fr;gap:18px}.sside{text-align:center}.scard{text-align:left;min-height:190px}}
 @media(max-width:560px){.spec{grid-template-columns:1fr;gap:2px}.chips button{padding:8px 11px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.sl{transition:none!important}}
+.itabs{display:flex;justify-content:center;gap:10px;padding:26px 20px 0;position:relative;z-index:3}
+.itabs a{font:600 13px/1 Poppins;letter-spacing:.14em;text-transform:uppercase;padding:12px 22px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--mute);text-decoration:none;transition:.2s}
+.itabs a:hover{border-color:#3cf0ff;color:#fff}
+.itabs a.on{border-color:transparent;color:#fff;background:linear-gradient(90deg,#ff46e6,#7b4dff)}
 </style>
 </head>
 <body>
@@ -85,6 +89,8 @@
  </div>
 </header>
 
+
+<div class="itabs"><a href="https://lazywall.com/guitaroud">GuitarOud</a><a class="on" href="https://lazywall.com/basshouj">Basshouj</a></div>
 <section class="contact last"><div class="wrap ins">
  <div class="kicker">From idea to instrument</div>
  <h2>How the Basshouj was born</h2>
