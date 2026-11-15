@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base target="_top">
+<title>Lazywall — The Basshouj</title>
+<meta name="description" content="The Basshouj, from Nao's sketch to the finished bass, built by hand by luthier Eric Stiegler.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Barlow+Condensed:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=14">
+<style>
+.twins{position:absolute;right:9%;bottom:34px;top:110px;display:flex;align-items:flex-end;z-index:1}
+.twins figure{flex:none;margin:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:12px}
+.twins img{flex:none;display:block;height:calc(100% - 34px);width:auto;max-width:none;filter:drop-shadow(0 0 16px rgba(255,70,230,.28)) drop-shadow(0 0 4px rgba(60,240,255,.35))}
+.twins figcaption{font:600 12px/1 Poppins;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.hero.compact .in{position:relative;z-index:2}
+.hero.compact .in .tag{max-width:460px}
+@media(max-width:900px){
+ .hero.compact{display:flex;flex-direction:column;min-height:0}
+ .hero.compact .in{order:1;padding:110px 28px 20px}
+ .twins{order:2;position:relative;right:auto;top:auto;bottom:auto;height:360px;justify-content:center;padding:0 20px 40px}
+}
+.ins{padding:56px 0 80px;text-align:center}
+.ins .lead{max-width:620px;margin:0 auto 6px;color:var(--mute)}
+.sbox{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:44px;align-items:center;max-width:1040px;margin:34px auto 0}
+.sstage{position:relative;width:100%;aspect-ratio:4/3;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#0b0912;touch-action:pan-y}
+.sl{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;pointer-events:none}
+.sl.on{opacity:1}
+.sl .bg{position:absolute;inset:-8%;width:116%;height:116%;object-fit:cover;filter:blur(26px) brightness(.45) saturate(1.2)}
+.sl .fg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.sl.light{background:#fff}
+.sl.light .bg{display:none}
+.sl.light .fg{padding:0 3%;box-sizing:border-box}
+.sl.final .fg{padding:4% 0;filter:drop-shadow(0 0 16px rgba(255,70,230,.3))}
+.arr{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(11,9,18,.6);color:#fff;font-size:20px;cursor:pointer;backdrop-filter:blur(6px)}
+.arr:hover{border-color:#3cf0ff;box-shadow:0 0 12px rgba(60,240,255,.4)}
+.arr.p{left:12px}.arr.n{right:12px}
+.sside{text-align:left}
+.scard{padding:24px 26px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,var(--panel2),var(--panel));min-height:210px}
+.scard .ik{font:600 11px/1 Poppins;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.scard h3{margin:10px 0 2px;font:700 32px/1.1 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.scard p{margin:10px 0 0;color:var(--mute);font-size:15px;line-height:1.6}
+.scard .cnt{margin-top:16px;font:600 12px/1 Poppins;letter-spacing:.18em;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:1040px;margin:26px auto 0}
+.chips button{font:600 12px/1 Poppins;letter-spacing:.08em;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--mute);cursor:pointer;transition:.2s}
+.chips button:hover{border-color:#3cf0ff;color:#fff}
+.chips button.on{border-color:transparent;color:#fff;background:linear-gradient(90deg,#ff46e6,#7b4dff)}
+.specs{max-width:700px;margin:56px auto 0;text-align:left;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.spec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:16px;padding:14px 20px;border-bottom:1px solid var(--line);font-size:14px}
+.spec:last-child{border-bottom:0}
+.spec b{font:700 17px/1.2 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:.04em}
+.spec span{color:var(--mute)}
+@media(max-width:820px){.sbox{grid-template-columns:1fr;gap:18px}.sside{text-align:center}.scard{text-align:left;min-height:190px}}
+@media(max-width:560px){.spec{grid-template-columns:1fr;gap:2px}.chips button{padding:8px 11px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.sl{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap">
+ <a class="logo" href="https://lazywall.com/home"><img src="https://images.zoogletools.com/s:bzglfiles/u/586824/55e5c1a7fc431817c111153e139b7f74d271f471/original/lazywall-logo-white.png/!!/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.png" alt="Lazywall"></a>
+ <ul id="menu">
+  <li><a href="https://story.lazywall.com/">The Series</a></li>
+  <li><a href="https://lazywall.com/timeline">Timeline</a></li>
+  <li><a href="https://lazywall.com/music">Music</a></li>
+  <li><a href="https://lazywall.com/video">Video</a></li>
+  <li><a href="https://lazywall.com/photos">Photos</a></li>
+  <li><a href="https://lazywall.com/store">Store</a></li>
+  <li><a class="pro" href="https://lazywall.com/epk">For pros</a></li>
+ </ul>
+ <button class="burger" id="burger" aria-label="Menu">☰</button>
+</div></nav>
+<header class="hero compact" id="top">
+ <div class="pattern"></div>
+ <div class="photo" style="background-image:url('https://images.zoogletools.com/s:bzglfiles/u/586824/a605f489f6457708af15164cd79ad58f247733f8/original/alk8977.jpg/!!/b%3AW1sicmVzaXplIiwxODAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg')"></div>
+ <div class="twins">
+  <figure><img src="img/basshouj_final.webp" alt="The Basshouj, a bass shaped by two moons"><figcaption>Strasbourg</figcaption></figure>
+ </div>
+ <div class="in">
+  <div class="kicker">The instruments</div>
+  <h1>The Basshouj</h1>
+  <p class="tag serif">A bass shaped by two moons. Drawn by Nao, designed and built by hand by luthier Eric Stiegler. It lives in Strasbourg.</p>
+ </div>
+</header>
+
+<section class="contact last"><div class="wrap ins">
+ <div class="kicker">From idea to instrument</div>
+ <h2>How the Basshouj was born</h2>
+ <p class="lead">A pencil sketch, a 3D model, then months in the workshop. Follow it step by step.</p>
+
+ <div class="sbox">
+  <div class="sstage" id="sstage">
+   <button type="button" class="arr p" id="prev" aria-label="Previous">&#8249;</button>
+   <button type="button" class="arr n" id="next" aria-label="Next">&#8250;</button>
+  </div>
+  <div class="sside">
+   <div class="scard" id="scard" aria-live="polite">
+    <div class="ik" id="sk"></div>
+    <h3 id="st"></h3>
+    <p id="sd"></p>
+    <div class="cnt" id="sc"></div>
+   </div>
+  </div>
+ </div>
+ <div class="chips" id="chips"></div>
+
+ <div class="specs rv">
+  <div class="spec"><b>Body and neck</b><span>Korina</span></div>
+  <div class="spec"><b>Fingerboard</b><span>Ebony</span></div>
+  <div class="spec"><b>Top</b><span>Padouk (red wood), engraved</span></div>
+  <div class="spec"><b>Rim plate</b><span>Engraved aluminium, moon phases</span></div>
+  <div class="spec"><b>Neck</b><span>Truss rod and two carbon reinforcements, bolted with threaded inserts</span></div>
+  <div class="spec"><b>Nut</b><span>Bone</span></div>
+  <div class="spec"><b>Pickup</b><span>B-Band</span></div>
+  <div class="spec"><b>Hardware</b><span>Gotoh Guembri tuners, Apollo Combi Headless, Dunlop Flush Mount strap lock</span></div>
+  <div class="spec"><b>Strings</b><span>45&ndash;105</span></div>
+ </div>
+</div></section>
+
+<footer style="padding:0;border:0;height:1px"></footer>
+
+<script>
+(function(){
+ var S=[
+  {k:"The idea",t:"Nao's sketch",d:"Two moons, one body. A crescent for the horns, a full circle for the belly. The Basshouj starts as a pencil drawing on kraft paper.",i:"img/bh_01_croquis.webp",c:"Idea"},
+  {k:"The design",t:"Eric draws it in 3D",d:"Luthier Eric Stiegler turns the sketch into a 3D model: the moon-phase rim, the geometric rosette, the long neck.",i:"img/bh_02_design.webp",l:1,c:"Design"},
+  {k:"18 March 2025",t:"The fingerboard lines",d:"Metal strips ready to be set into the ebony fingerboard, with pearl dots on its edge.",i:"img/bh_03_frets.webp",c:"18 Mar"},
+  {k:"21 March 2025",t:"Ebony and padouk",d:"The fingerboard in ebony, its end in red padouk.",i:"img/bh_04_padouk.webp",c:"21 Mar"},
+  {k:"28 March 2025",t:"The face takes shape",d:"Engraved aluminium moon phases around a padouk top carved with a geometric rosette. The neck sits in place for the first time.",i:"img/bh_05_face.webp",c:"28 Mar"},
+  {k:"23 April 2025",t:"The pickup",d:"A B-Band pickup, with its magnets set in a black housing.",i:"img/bh_06_pickup.webp",c:"23 Apr"},
+  {k:"6 May 2025",t:"In the workshop",d:"The body on the bench, the neck in the vise, the Apollo hardware laid on the top.",i:"img/bh_07_atelier.webp",c:"6 May"},
+  {k:"23 May 2025",t:"The back of the body",d:"Korina, shaped by hand. Six black screws hold the neck.",i:"img/bh_08_back.webp",c:"23 May"},
+  {k:"23 May 2025",t:"Eric's mark",d:"The back of the neck, with threaded inserts and the luthier's stamp.",i:"img/bh_09_neckback.webp",c:"23 May"},
+  {k:"Today",t:"The Basshouj",d:"Born from a sketch, built in Eric's workshop. This one lives in Strasbourg.",i:"img/basshouj_final.webp",f:1,c:"Today"}
+ ];
+ var stg=document.getElementById('sstage'),chips=document.getElementById('chips');
+ var sk=document.getElementById('sk'),st=document.getElementById('st'),sd=document.getElementById('sd'),sc=document.getElementById('sc');
+ var cur=0,sl=[],cb=[];
+ S.forEach(function(s,n){
+  var d=document.createElement('div');d.className='sl'+(s.l?' light':'')+(s.f?' final':'');
+  var lz=n<2?'':' loading="lazy"';
+  d.innerHTML='<img class="bg" src="'+s.i+'" alt=""'+lz+'><img class="fg" src="'+s.i+'" alt="'+s.t+'"'+lz+'>';
+  stg.insertBefore(d,stg.firstChild);sl.push(d);
+  var b=document.createElement('button');b.type='button';b.textContent=s.c;b.addEventListener('click',function(){go(n)});
+  chips.appendChild(b);cb.push(b);
+ });
+ function go(n){
+  cur=(n+S.length)%S.length;var s=S[cur];
+  sl.forEach(function(d,i){d.classList.toggle('on',i===cur)});
+  cb.forEach(function(b,i){b.classList.toggle('on',i===cur)});
+  sk.textContent=s.k;st.textContent=s.t;sd.textContent=s.d;
+  sc.textContent=String(cur+1).padStart(2,'0')+' / '+String(S.length).padStart(2,'0');
+ }
+ document.getElementById('prev').addEventListener('click',function(){go(cur-1)});
+ document.getElementById('next').addEventListener('click',function(){go(cur+1)});
+ document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(cur-1);if(e.key==='ArrowRight')go(cur+1)});
+ var x0=null;
+ stg.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+ stg.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));x0=null});
+ go(0);
+ function sendH(){try{var f=document.querySelector('footer');parent.postMessage({lazywallHeight:Math.ceil(f.getBoundingClientRect().bottom+window.scrollY)},'*')}catch(e){}}
+ window.addEventListener('load',sendH);window.addEventListener('resize',sendH);setInterval(sendH,1500);
+})();
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>
