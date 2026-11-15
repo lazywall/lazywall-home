@@ -229,3 +229,5 @@ nav ul a.pro{border-radius:999px}
 .years button.on{color:#0b0912;background:var(--gold);border-color:var(--gold);box-shadow:0 0 20px var(--glowC)}
 @media(max-width:900px){.years{width:100%;right:0}}
 .years{bottom:auto;top:92px}
+.cast{bottom:70px;height:calc(100% - 150px)}
+.years{top:auto;bottom:18px}
