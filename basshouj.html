@@ -62,6 +62,28 @@
 .hero .itabs{justify-content:flex-start;padding:0 0 22px}
 .itabs.bot{padding:10px 20px 70px}
 @media(max-width:900px){.hero .itabs{justify-content:center;padding:0 0 18px}}
+.ibox{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:56px;align-items:center;max-width:980px;margin:34px auto 0}
+.stage{position:relative;width:100%;aspect-ratio:2/3;container-type:inline-size}
+.side{text-align:left}
+.stage:before{content:"";position:absolute;inset:6% 4% 4%;background:radial-gradient(60% 50% at 50% 50%,rgba(155,92,255,.28),transparent 70%);pointer-events:none}
+.asm{position:absolute;transition:opacity .7s ease .15s;filter:drop-shadow(0 0 18px rgba(255,70,230,.25))}
+.asm img,.part img{display:block;width:100%;height:100%;user-select:none;-webkit-user-drag:none}
+.part{position:absolute;padding:0;border:0;background:none;cursor:default;opacity:0;pointer-events:none;
+ transform:translate(calc(var(--tx)*1cqw),calc(var(--ty)*1cqw)) scale(var(--sx),var(--sy));
+ transition:transform .95s cubic-bezier(.2,.8,.2,1) var(--d),opacity .5s ease var(--d),filter .25s}
+.stage.out .part{opacity:1;transform:none;pointer-events:auto;cursor:pointer}
+.stage.out .asm{opacity:0;transition-delay:0s}
+.stage.out .part:hover,.stage.out .part:focus-visible{filter:drop-shadow(0 0 10px #3cf0ff) drop-shadow(0 0 3px #3cf0ff);outline:0}
+.stage.out .part.on{filter:drop-shadow(0 0 14px #ff46e6) drop-shadow(0 0 3px #3cf0ff)}
+.stage.out.pick .part:not(.on){opacity:.5}
+.stage:not(.out) .part{transition-delay:0s}
+.go{margin-top:0}
+.icard{margin:26px 0 0;padding:22px 24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,var(--panel2),var(--panel));text-align:left;min-height:150px}
+.icard .ik{font:600 11px/1 Poppins;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.icard h3{margin:10px 0 2px;font:700 30px/1.1 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.icard p{margin:8px 0 0;color:var(--mute);font-size:15px;line-height:1.55}
+@media(max-width:820px){.ibox{grid-template-columns:1fr;gap:6px;justify-items:center}.stage{width:68%;max-width:320px}.side{text-align:center;width:100%}.icard{min-height:170px}}
+@media(prefers-reduced-motion:reduce){.part,.asm{transition:none!important}}
 </style>
 </head>
 <body>
@@ -115,6 +137,34 @@
  </div>
  <div class="chips" id="chips"></div>
 
+
+ <div class="kicker" style="margin-top:84px">Take it apart</div>
+ <h2>What it is made of</h2>
+ <p class="lead">Press the button, then tap any part to see what it is.</p>
+ <div class="ibox">
+ <div class="stage" id="stage">
+  <div class="asm" style="left:28.245%;top:3.000%;width:43.509%;height:94.000%"><img src="img/basshouj_final.webp" alt="The Basshouj, assembled"></div>
+  <button type="button" class="part" data-g="body" aria-label="Body" style="left:34.458%;top:51.359%;width:31.207%;height:30.362%;--tx:-0.062;--ty:14.058;--sx:1.3779;--sy:1.3779;--d:0ms"><img src="img/bhx_body.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="horns" aria-label="Left horn" style="left:29.391%;top:46.045%;width:7.848%;height:11.906%;--tx:6.382;--ty:20.290;--sx:1.3779;--sy:1.3779;--d:45ms"><img src="img/bhx_horn_l.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="horns" aria-label="Right horn" style="left:63.193%;top:51.071%;width:7.168%;height:6.797%;--tx:-6.517;--ty:21.691;--sx:1.3779;--sy:1.3779;--d:90ms"><img src="img/bhx_horn_r.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="plates" aria-label="Left aluminium plate" style="left:26.425%;top:64.954%;width:11.679%;height:18.003%;--tx:4.708;--ty:14.004;--sx:1.3779;--sy:1.3779;--d:135ms"><img src="img/bhx_plate_l.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="plates" aria-label="Right aluminium plate" style="left:62.328%;top:64.954%;width:11.247%;height:18.003%;--tx:-4.797;--ty:14.004;--sx:1.3779;--sy:1.3779;--d:180ms"><img src="img/bhx_plate_r.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="top" aria-label="Top" style="left:38.352%;top:73.400%;width:23.359%;height:14.584%;--tx:-0.073;--ty:7.604;--sx:1.3779;--sy:1.3779;--d:225ms"><img src="img/bhx_top.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="neck" aria-label="Neck" style="left:46.200%;top:20.421%;width:8.095%;height:41.856%;--tx:0.008;--ty:13.403;--sx:1.3779;--sy:1.3779;--d:270ms"><img src="img/bhx_neck.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="head" aria-label="Headstock" style="left:44.222%;top:2.500%;width:13.904%;height:13.554%;--tx:0.358;--ty:4.591;--sx:1.3779;--sy:1.3779;--d:315ms"><img src="img/bhx_head.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="pickup" aria-label="Pickup" style="left:44.469%;top:67.303%;width:7.786%;height:3.049%;--tx:-0.704;--ty:17.908;--sx:1.3779;--sy:1.3779;--d:360ms"><img src="img/bhx_pickup.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="bridge" aria-label="Bridge" style="left:49.907%;top:91.279%;width:6.797%;height:2.307%;--tx:1.164;--ty:-1.919;--sx:1.3779;--sy:1.3779;--d:405ms"><img src="img/bhx_bridge.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="apollo" aria-label="Apollo hardware" style="left:40.144%;top:92.433%;width:5.314%;height:5.067%;--tx:4.858;--ty:-2.186;--sx:1.3779;--sy:1.3779;--d:450ms"><img src="img/bhx_tuners.webp" alt="" draggable="false"></button>
+ </div>
+ <div class="side">
+  <button type="button" class="btn fill go" id="go">Take it apart</button>
+  <div class="icard" id="card" aria-live="polite">
+   <div class="ik">The Basshouj</div>
+   <h3 id="ct">Two moons, one body</h3>
+   <p id="cd">A bass shaped like two moons, in padouk, aluminium and korina.</p>
+  </div>
+ </div>
+ </div>
  <div class="specs rv">
   <div class="spec"><b>Body and neck</b><span>Korina</span></div>
   <div class="spec"><b>Fingerboard</b><span>Ebony</span></div>
@@ -124,7 +174,7 @@
   <div class="spec"><b>Nut</b><span>Bone</span></div>
   <div class="spec"><b>Pickup</b><span>B-Band</span></div>
   <div class="spec"><b>Hardware</b><span>Gotoh Guembri tuners, Apollo Combi Headless, Dunlop Flush Mount strap lock</span></div>
-  <div class="spec"><b>Strings</b><span>Three strings, 65&ndash;105</span></div>
+  <div class="spec"><b>Strings</b><span>Three bass strings (65&ndash;105) and three guembri strings</span></div>
  </div>
 </div></section>
 <div class="itabs bot"><a href="https://lazywall.com/guitaroud">GuitarOud</a><a class="on" href="https://lazywall.com/basshouj">Basshouj</a></div>
@@ -172,6 +222,25 @@
  go(0);
  function sendH(){try{var f=document.querySelector('footer');parent.postMessage({lazywallHeight:Math.ceil(f.getBoundingClientRect().bottom+window.scrollY)},'*')}catch(e){}}
  window.addEventListener('load',sendH);window.addEventListener('resize',sendH);setInterval(sendH,1500);
+})();
+</script>
+<script>
+(function(){
+ var INFO={"head": {"t": "Headstock", "s": "Padouk and aluminium", "d": "Red padouk wings around an engraved aluminium plate, with the Gotoh Guembri tuners on it."}, "neck": {"t": "Neck", "s": "Korina, ebony fingerboard", "d": "A korina neck with an ebony fingerboard and a bone nut. A truss rod and two carbon reinforcements keep it straight, and it is bolted to the body with threaded inserts."}, "horns": {"t": "The horns", "s": "Red padouk", "d": "The two crescents of Nao's sketch, cut in red padouk and framed by the korina body."}, "plates": {"t": "Aluminium plates", "s": "Engraved aluminium", "d": "Two plates of aluminium engraved with concentric circles, like moon phases, set into the body on each side."}, "top": {"t": "The top", "s": "Red padouk", "d": "A disc of red padouk (bois rouge) in the middle of the body. The strings cross it down to the bridge."}, "pickup": {"t": "Pickup", "s": "B-Band", "d": "A B-Band pickup in a black housing, set into the top."}, "bridge": {"t": "Bridge", "s": "Metal", "d": "A small metal bridge on the top, where the strings come to rest."}, "apollo": {"t": "Apollo hardware", "s": "Combi Headless, three units", "d": "Three black Apollo Combi Headless units with gold details hold the strings at the bottom of the body."}, "body": {"t": "The body", "s": "Korina", "d": "The body is korina, like the neck. The horns, plates and top are set into it, and six black screws hold the neck on the back."}};
+ var st=document.getElementById('stage'),go=document.getElementById('go'),ps=[].slice.call(st.querySelectorAll('.part'));
+ var ct=document.getElementById('ct'),cd=document.getElementById('cd'),ck=document.querySelector('#card .ik');
+ var d0={t:ct.textContent,d:cd.textContent};
+ function clear(){st.classList.remove('pick');ps.forEach(function(p){p.classList.remove('on')})}
+ function show(g){var i=INFO[g];if(!i)return;st.classList.add('pick');
+  ps.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-g')===g)});
+  ck.textContent=i.s;ct.textContent=i.t;cd.textContent=i.d}
+ ps.forEach(function(p){p.addEventListener('click',function(){show(p.getAttribute('data-g'))})});
+ go.addEventListener('click',function(){
+  var out=st.classList.toggle('out');
+  go.textContent=out?'Put it back together':'Take it apart';
+  clear();ck.textContent='The Basshouj';
+  if(out){ct.textContent='Tap a part';cd.textContent='Each piece is lit when you tap it.'}else{ct.textContent=d0.t;cd.textContent=d0.d}
+ });
 })();
 </script>
 <script src="site.js" defer></script>
