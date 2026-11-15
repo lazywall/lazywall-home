@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base target="_top">
+<title>Lazywall — Welcome</title>
+<meta name="description" content="Lazywall, oriental alt rock hybrid from Morocco. Watch the series, listen, follow us.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Barlow+Condensed:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=13">
+<style>
+.intro{position:relative;overflow:hidden;text-align:center;padding:44px 20px 56px;background:radial-gradient(70% 55% at 50% 38%,#3b1670 0%,transparent 70%),radial-gradient(40% 40% at 90% 10%,rgba(60,240,255,.16),transparent 70%),var(--bg)}
+.intro .logo{display:block;margin:0 auto}
+.intro .logo img{height:64px;width:auto;display:block;margin:0 auto}
+.intro .tagline{margin:18px 0 0;font:700 clamp(20px,3.6vw,30px)/1.1 "Barlow Condensed",Impact,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sand)}
+.intro .tagline em{font-style:normal;color:var(--gold);text-shadow:0 0 22px rgba(60,240,255,.5)}
+.istage{position:relative;height:400px;max-width:620px;margin:22px auto 0}
+.istage .cast{position:absolute;left:0;right:0;bottom:62px;top:0;width:auto;height:auto;opacity:1}
+.istage .years{position:absolute;left:0;right:0;bottom:6px;top:auto;width:100%;justify-content:center}
+@media(max-width:900px){.istage .cast{opacity:1;width:auto;height:auto}.istage .years{width:100%;right:0}}
+.links{max-width:460px;margin:26px auto 0;display:grid;gap:12px}
+.links a{display:block;padding:15px 22px;border:1px solid var(--line);border-radius:999px;background:rgba(27,23,41,.7);color:var(--sand);font:600 13px/1 Poppins,sans-serif;letter-spacing:.16em;text-transform:uppercase;text-align:center;transition:.25s}
+.links a:hover{border-color:var(--gold);box-shadow:0 0 20px var(--glowC);color:#fff;transform:translateY(-2px)}
+.links a.main{border:0;background:linear-gradient(90deg,#ff46e6,#9b5cff);color:#fff;box-shadow:0 0 28px var(--glowM);padding:17px 22px}
+.links a.main:hover{background:linear-gradient(90deg,#3cf0ff,#9b5cff);color:#0b0912;box-shadow:0 0 28px var(--glowC)}
+.nextep{margin-top:12px;font:500 13px/1.4 Poppins,sans-serif;color:var(--mute)}
+.nextep b{color:var(--gold);font-weight:600}
+.enter{margin-top:34px}
+.enter .btn{padding:17px 44px}
+@media(max-width:560px){.istage{height:330px}.intro .logo img{height:52px}}
+</style>
+</head>
+<body>
+
+<section class="intro">
+ <a class="logo" href="https://lazywall.com/home"><img src="https://images.zoogletools.com/s:bzglfiles/u/586824/55e5c1a7fc431817c111153e139b7f74d271f471/original/lazywall-logo-white.png/!!/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.png" alt="Lazywall"></a>
+ <p class="tagline">Oriental alt rock hybrid <em>from Morocco</em></p>
+
+ <div class="istage">
+  <div class="cast" id="cast" aria-hidden="true">
+   <div class="era e03"><img src="img/nao_2003.webp" alt=""><img class="mid" src="img/monz_2003.webp" alt=""><img src="img/youssef_2003.webp" alt=""></div>
+   <div class="era e22"><img src="img/nao_2022.webp" alt=""><img class="mid" src="img/monz_2022.webp" alt=""><img src="img/youssef_2022.webp" alt=""></div>
+  </div>
+  <div class="years" id="years"><button class="on" data-e="03">2003</button><i></i><button data-e="22">Today</button></div>
+ </div>
+
+ <div class="links">
+  <a class="main" href="https://story.lazywall.com/">Watch the series</a>
+  <a href="https://www.youtube.com/watch?v=8BRUXlKfon4">Watch our last video</a>
+  <a href="https://open.spotify.com/intl-fr/artist/1u2EXXPV58j0coivEp6r7X">Stream on Spotify</a>
+  <a href="https://www.youtube.com/lazywallofficial">Subscribe on YouTube</a>
+  <a href="https://www.instagram.com/lazywallofficial/">Follow us on Instagram</a>
+  <a href="https://www.facebook.com/lazywallofficial">Follow us on Facebook</a>
+ </div>
+ <div class="nextep" id="nextTxt"></div>
+
+ <div class="enter"><a class="btn fill" href="https://lazywall.com/home">Enter the site</a></div>
+</section>
+
+<footer style="padding:0;border:0;height:1px"></footer>
+
+<script>
+(function(){
+ var EP=[[1,'Wanted: Guitarist',[2026,10,16]],[2,'100 Gigs Later',[2026,10,19]],[3,'Leicester',[2026,10,23]],[4,'Chicago',[2026,10,26]],[5,'Casablanca',[2026,10,30]],[6,'September',[2026,11,3]],[7,'Czech Republic',[2026,11,7]],[8,'Back to the Cradle',[2026,11,10]]];
+ var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+ var now=Date.now(),next=null;
+ EP.forEach(function(e){if(now<Date.UTC(e[2][0],e[2][1],e[2][2],17,0)&&!next)next=e});
+ document.getElementById('nextTxt').innerHTML=next?'Next: <b>EP 0'+next[0]+' · '+next[1]+'</b>, '+next[2][2]+' '+MO[next[2][1]]+' at 6 PM (Morocco)':'<b>Season 1 is complete.</b> Watch it from the start.';
+ var c=document.getElementById('cast'),y=document.getElementById('years'),bs=y.querySelectorAll('button'),cur='03',t;
+ function set(e){cur=e;c.className='cast '+(e==='22'?'now':'');for(var i=0;i<bs.length;i++)bs[i].className=bs[i].getAttribute('data-e')===e?'on':''}
+ function auto(){clearInterval(t);if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;t=setInterval(function(){set(cur==='03'?'22':'03')},4500)}
+ for(var i=0;i<bs.length;i++)bs[i].addEventListener('click',function(){set(this.getAttribute('data-e'));clearInterval(t)});auto();
+ function sendH(){try{var f=document.querySelector('footer');parent.postMessage({lazywallHeight:Math.ceil(f.getBoundingClientRect().bottom+window.scrollY)},'*')}catch(e){}}
+ window.addEventListener('load',sendH);window.addEventListener('resize',sendH);setInterval(sendH,1500);
+})();
+</script>
+</body>
+</html>
