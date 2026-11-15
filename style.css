@@ -255,3 +255,18 @@ nav ul a.pro{border-radius:999px}
 .shows.stage{position:relative;overflow:hidden}
 .shows.stage:before{content:"";position:absolute;left:0;right:0;top:0;height:520px;background:linear-gradient(180deg,rgba(20,17,31,.35) 0%,rgba(20,17,31,.55) 45%,var(--bg2) 100%),url(img/scene-festival.webp) 50% 76%/cover no-repeat}
 .shows.stage>.wrap{position:relative;z-index:1}
+
+/* polaroid wall */
+.pols{column-count:3;column-gap:34px;padding:10px 6px}
+.pol{display:inline-block;width:100%;break-inside:avoid;margin:0 0 38px;background:#f6f1e7;padding:12px 12px 10px;border-radius:3px;box-shadow:0 14px 34px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.06);position:relative;transform:rotate(var(--r,-2deg));transition:transform .35s ease,box-shadow .35s ease}
+.pol:nth-child(6n+1){--r:-2.2deg}.pol:nth-child(6n+2){--r:1.6deg}.pol:nth-child(6n+3){--r:-1deg}.pol:nth-child(6n+4){--r:2.4deg}.pol:nth-child(6n+5){--r:-1.8deg}.pol:nth-child(6n){--r:.9deg}
+.pol .ph{display:block;background:#222;overflow:hidden}
+.pol img{width:100%;height:auto;display:block;filter:saturate(1.05)}
+.pol .cap{display:block;text-align:center;font:600 26px/1 Caveat,cursive;color:#2b2540;padding:12px 4px 6px}
+.pol:nth-child(3n):before{content:"";position:absolute;top:-13px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(60,240,255,.35);transform:rotate(-3deg)}
+.pol:nth-child(3n+1):before{content:"";position:absolute;top:-12px;left:24px;width:70px;height:22px;background:rgba(255,70,230,.3);transform:rotate(-8deg)}
+.pol:hover{transform:rotate(0) scale(1.04);z-index:3;box-shadow:0 20px 50px rgba(0,0,0,.65),0 0 34px var(--glowM)}
+.hires{text-align:center;margin-top:30px;color:var(--mute)}
+.hires .btn{margin-top:16px}
+@media(max-width:900px){.pols{column-count:2;column-gap:22px}}
+@media(max-width:560px){.pols{column-count:1;padding:10px 18px}.pol .cap{font-size:24px}}
