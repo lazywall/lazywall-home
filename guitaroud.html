@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base target="_top">
+<title>Lazywall — The GuitarOud</title>
+<meta name="description" content="The GuitarOud, taken apart: an oud and a guitar sharing one body, built by hand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Barlow+Condensed:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=14">
+<style>
+.ins{padding:56px 0 80px;text-align:center}
+.ins .lead{max-width:620px;margin:0 auto 6px;color:var(--mute)}
+.stage{position:relative;width:min(100%,540px);aspect-ratio:2/3;margin:34px auto 0;container-type:inline-size}
+.stage:before{content:"";position:absolute;inset:6% 4% 4%;background:radial-gradient(60% 50% at 50% 50%,rgba(155,92,255,.28),transparent 70%);pointer-events:none}
+.asm{position:absolute;left:16.602%;top:0.586%;width:66.895%;height:98.698%;transition:opacity .7s ease .15s;filter:drop-shadow(0 0 18px rgba(255,70,230,.25))}
+.asm img,.part img{display:block;width:100%;height:100%;user-select:none;-webkit-user-drag:none}
+.part{position:absolute;padding:0;border:0;background:none;cursor:default;opacity:0;pointer-events:none;
+ transform:translate(calc(var(--tx)*1cqw),calc(var(--ty)*1cqw)) scale(var(--sx),var(--sy));
+ transition:transform .95s cubic-bezier(.2,.8,.2,1) var(--d),opacity .5s ease var(--d),filter .25s}
+.stage.out .part{opacity:1;transform:none;pointer-events:auto;cursor:pointer}
+.stage.out .asm{opacity:0;transition-delay:0s}
+.stage.out .part:hover,.stage.out .part:focus-visible{filter:drop-shadow(0 0 10px #3cf0ff) drop-shadow(0 0 3px #3cf0ff);outline:0}
+.stage.out .part.on{filter:drop-shadow(0 0 14px #ff46e6) drop-shadow(0 0 3px #3cf0ff)}
+.stage.out.pick .part:not(.on){opacity:.5}
+.stage:not(.out) .part{transition-delay:0s}
+.go{margin-top:26px}
+.icard{max-width:560px;margin:26px auto 0;padding:22px 24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,var(--panel2),var(--panel));text-align:left;min-height:122px}
+.icard .ik{font:600 11px/1 Poppins;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.icard h3{margin:10px 0 2px;font:700 28px/1.1 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.icard .s{color:var(--ember);font-weight:600;font-size:14px}
+.icard p{margin:8px 0 0;color:var(--mute);font-size:15px;line-height:1.55}
+.specs{max-width:700px;margin:56px auto 0;text-align:left;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.spec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:16px;padding:14px 20px;border-bottom:1px solid var(--line);font-size:14px}
+.spec:last-child{border-bottom:0}
+.spec b{font:700 17px/1.2 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:.04em}
+.spec span{color:var(--mute)}
+.twin{max-width:560px;margin:56px auto 0;color:var(--mute);font-size:15px}
+.twin b{color:var(--sand)}
+@media(max-width:560px){.spec{grid-template-columns:1fr;gap:2px}}
+@media(prefers-reduced-motion:reduce){.part,.asm{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap">
+ <a class="logo" href="https://lazywall.com/home"><img src="https://images.zoogletools.com/s:bzglfiles/u/586824/55e5c1a7fc431817c111153e139b7f74d271f471/original/lazywall-logo-white.png/!!/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.png" alt="Lazywall"></a>
+ <ul id="menu">
+  <li><a href="https://story.lazywall.com/">The Series</a></li>
+  <li><a href="https://lazywall.com/timeline">Timeline</a></li>
+  <li><a href="https://lazywall.com/music">Music</a></li>
+  <li><a href="https://lazywall.com/video">Video</a></li>
+  <li><a href="https://lazywall.com/photos">Photos</a></li>
+  <li><a href="https://lazywall.com/store">Store</a></li>
+  <li><a class="pro" href="https://lazywall.com/epk">For pros</a></li>
+ </ul>
+ <button class="burger" id="burger" aria-label="Menu">☰</button>
+</div></nav>
+
+<header class="hero compact" id="top">
+ <div class="pattern"></div>
+ <div class="photo" style="background-image:url('https://images.zoogletools.com/s:bzglfiles/u/586824/a605f489f6457708af15164cd79ad58f247733f8/original/alk8977.jpg/!!/b%3AW1sicmVzaXplIiwxODAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg')"></div>
+ <div class="in">
+  <div class="kicker">The instruments</div>
+  <h1>The GuitarOud</h1>
+  <p class="tag serif">An oud and a guitar, sharing one body. Built by hand by luthier Eric Stiegler.</p>
+ </div>
+</header>
+
+<section class="contact last"><div class="wrap ins">
+ <div class="kicker">Take it apart</div>
+ <h2>What it is made of</h2>
+ <p class="lead">Press the button, then tap any part to see what it is and where it comes from.</p>
+
+ <div class="stage" id="stage">
+  <div class="asm"><img src="img/guitaroud_assembled.webp" alt="The GuitarOud, a double-neck instrument with an oud neck and a guitar neck on one teardrop body"></div>
+  <button type="button" class="part" data-g="body" aria-label="Body" style="left:28.320%;top:41.146%;width:43.359%;height:30.078%;--tx:-0.098;--ty:17.383;--sx:1.527;--sy:2.082;--d:0ms"><img src="img/part_body.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="oud_neck" aria-label="Oud neck" style="left:34.180%;top:16.211%;width:10.547%;height:24.674%;--tx:-1.025;--ty:25.732;--sx:1.269;--sy:1.636;--d:45ms"><img src="img/part_oud_neck.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="gtr_neck" aria-label="Guitar neck" style="left:55.469%;top:15.365%;width:8.496%;height:26.172%;--tx:0.635;--ty:15.234;--sx:1.149;--sy:1.776;--d:90ms"><img src="img/part_gtr_neck.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="oud_head" aria-label="Oud headstock" style="left:33.984%;top:1.107%;width:10.840%;height:14.779%;--tx:-0.732;--ty:6.982;--sx:1.333;--sy:1.674;--d:135ms"><img src="img/part_oud_head.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="gtr_head" aria-label="Guitar headstock" style="left:52.051%;top:1.432%;width:15.527%;height:12.891%;--tx:0.488;--ty:1.367;--sx:1.189;--sy:0.980;--d:180ms"><img src="img/part_gtr_head.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="inlay" aria-label="Lazywall inlay" style="left:46.387%;top:92.643%;width:6.250%;height:5.859%;--tx:-10.938;--ty:-75.977;--sx:0.781;--sy:0.778;--d:225ms"><img src="img/part_inlay.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="p90" aria-label="Neck pickup" style="left:44.531%;top:71.680%;width:12.402%;height:3.451%;--tx:9.131;--ty:-14.893;--sx:1.181;--sy:1.245;--d:270ms"><img src="img/part_p90.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="humbucker" aria-label="Bridge pickup" style="left:44.238%;top:75.521%;width:12.988%;height:4.427%;--tx:9.033;--ty:-5.078;--sx:1.143;--sy:1.176;--d:315ms"><img src="img/part_humbucker.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="bridge" aria-label="Guitar bridge" style="left:43.066%;top:80.599%;width:15.332%;height:2.604%;--tx:9.082;--ty:-4.297;--sx:1.013;--sy:0.900;--d:360ms"><img src="img/part_bridge.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="tailpiece" aria-label="Guitar tailpiece" style="left:43.066%;top:84.049%;width:15.332%;height:2.409%;--tx:9.131;--ty:-3.174;--sx:1.108;--sy:1.027;--d:405ms"><img src="img/part_tailpiece.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="oud_bridge" aria-label="Oud bridge" style="left:27.832%;top:87.760%;width:19.727%;height:3.646%;--tx:0.000;--ty:-5.957;--sx:1.010;--sy:0.964;--d:450ms"><img src="img/part_oud_bridge.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="controls" aria-label="Controls" style="left:53.711%;top:87.174%;width:4.004%;height:3.516%;--tx:15.576;--ty:-15.527;--sx:1.073;--sy:0.704;--d:495ms"><img src="img/part_switch.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="controls" aria-label="Controls" style="left:59.961%;top:87.174%;width:4.199%;height:2.865%;--tx:9.326;--ty:-5.664;--sx:0.884;--sy:0.864;--d:540ms"><img src="img/part_knob1.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="controls" aria-label="Controls" style="left:65.137%;top:87.174%;width:4.297%;height:2.865%;--tx:9.570;--ty:-10.156;--sx:0.864;--sy:0.864;--d:585ms"><img src="img/part_knob2.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="controls" aria-label="Controls" style="left:59.766%;top:90.365%;width:4.492%;height:2.995%;--tx:8.105;--ty:-1.855;--sx:0.826;--sy:0.826;--d:630ms"><img src="img/part_knob3.webp" alt="" draggable="false"></button>
+  <button type="button" class="part" data-g="controls" aria-label="Controls" style="left:65.039%;top:90.365%;width:4.395%;height:2.995%;--tx:9.131;--ty:-5.957;--sx:0.844;--sy:0.826;--d:675ms"><img src="img/part_knob4.webp" alt="" draggable="false"></button>
+  </div>
+ <button type="button" class="btn fill go" id="go">Take it apart</button>
+
+ <div class="icard" id="card" aria-live="polite">
+  <div class="ik">The GuitarOud</div>
+  <h3 id="ct">Two necks, one body</h3>
+  <p id="cd">On the left, a fretless oud neck. On the right, a guitar neck with frets. One body carries both.</p>
+ </div>
+
+ <p class="twin">There are two of them: <b>one lives in Tangier, the other in Strasbourg.</b> This is the light one.</p>
+
+ <div class="specs rv"><div class="spec"><b>Body</b><span>Cedro body, maple top and back</span></div><div class="spec"><b>Oud neck</b><span>Cedro neck, fretless ebony fretboard</span></div><div class="spec"><b>Guitar neck</b><span>Cedro neck, ebony fretboard, Graphtech nut</span></div><div class="spec"><b>Oud headstock</b><span>Schertler tuners</span></div><div class="spec"><b>Guitar headstock</b><span>Hipshot Grip-Lock tuners</span></div><div class="spec"><b>Neck pickup</b><span>Seymour Duncan P90 Antiquity</span></div><div class="spec"><b>Bridge pickup</b><span>PRS 57/08 Treble</span></div><div class="spec"><b>Guitar bridge</b><span>TonePros Tuneomatic</span></div><div class="spec"><b>Guitar tailpiece</b><span>TonePros Tuneomatic set</span></div><div class="spec"><b>Oud bridge</b><span>Ebony, with an L.R. Baggs MI-SI Acoustic Trio piezo</span></div><div class="spec"><b>Lazywall inlay</b><span>Pearl</span></div></div>
+</div></section>
+
+<footer style="padding:0;border:0;height:1px"></footer>
+
+<script>
+(function(){
+ var INFO={"oud_head": {"t": "Oud headstock", "s": "Schertler tuners", "d": "Slotted headstock in ebony, the way an oud is built, with Schertler tuners."}, "gtr_head": {"t": "Guitar headstock", "s": "Hipshot Grip-Lock tuners", "d": "Ebony headstock with three tuners on each side. The Grip-Lock system holds the strings tightly in tune."}, "gtr_neck": {"t": "Guitar neck", "s": "Cedro neck, ebony fretboard, Graphtech nut", "d": "A six-string neck with an ebony fretboard and a Graphtech nut."}, "oud_neck": {"t": "Oud neck", "s": "Cedro neck, fretless ebony fretboard", "d": "The fretless neck of an oud, free to slide between the notes. The Lazywall flame is inlaid in pearl."}, "body": {"t": "Body", "s": "Cedro body, maple top and back", "d": "One teardrop body for both necks. Cedro for the body and the necks, maple for the top and the back."}, "p90": {"t": "Neck pickup", "s": "Seymour Duncan P90 Antiquity", "d": "A warm, gritty single coil, next to the guitar neck."}, "humbucker": {"t": "Bridge pickup", "s": "PRS 57/08 Treble", "d": "A humbucker for the bright, heavy side of the guitar."}, "bridge": {"t": "Guitar bridge", "s": "TonePros Tuneomatic", "d": "The tune-o-matic bridge, where the six guitar strings rest."}, "tailpiece": {"t": "Guitar tailpiece", "s": "TonePros Tuneomatic set", "d": "Holds the other end of the guitar strings."}, "oud_bridge": {"t": "Oud bridge", "s": "Ebony, with an L.R. Baggs MI-SI Acoustic Trio piezo", "d": "The strings of the oud are tied to this ebony bridge. A piezo pickup and an endpin preamp (L.R. Baggs MI-SI Acoustic Trio) amplify it."}, "controls": {"t": "Controls", "s": "Toggle switch and four knobs", "d": "The switch and the knobs that shape the sound of the guitar side."}, "inlay": {"t": "Lazywall inlay", "s": "Pearl", "d": "Our flame, inlaid in pearl on the oud neck."}};
+ var st=document.getElementById('stage'),go=document.getElementById('go'),ps=[].slice.call(st.querySelectorAll('.part'));
+ var ct=document.getElementById('ct'),cd=document.getElementById('cd'),ck=document.querySelector('#card .ik');
+ var d0={t:ct.textContent,d:cd.textContent,k:ck.textContent};
+ function clear(){st.classList.remove('pick');ps.forEach(function(p){p.classList.remove('on')})}
+ function show(g){
+  var i=INFO[g];if(!i)return;
+  st.classList.add('pick');
+  ps.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-g')===g)});
+  ck.textContent=i.s;ct.textContent=i.t;cd.textContent=i.d;
+ }
+ ps.forEach(function(p){p.addEventListener('click',function(){show(p.getAttribute('data-g'))})});
+ go.addEventListener('click',function(){
+  var out=st.classList.toggle('out');
+  go.textContent=out?'Put it back together':'Take it apart';
+  clear();
+  ck.textContent='The GuitarOud';
+  if(out){ct.textContent='Tap a part';cd.textContent='Each piece is lit when you tap it.'}else{ct.textContent=d0.t;cd.textContent=d0.d}
+ });
+ function sendH(){try{var f=document.querySelector('footer');parent.postMessage({lazywallHeight:Math.ceil(f.getBoundingClientRect().bottom+window.scrollY)},'*')}catch(e){}}
+ window.addEventListener('load',sendH);window.addEventListener('resize',sendH);setInterval(sendH,1500);
+})();
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>
