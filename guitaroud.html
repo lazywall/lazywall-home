@@ -11,6 +11,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Barlow+Condensed:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=14">
 <style>
+.twins{position:absolute;right:5%;bottom:34px;top:110px;display:flex;align-items:flex-end;gap:18px;z-index:1}
+.twins figure{flex:none;margin:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:12px}
+.twins img{flex:none;display:block;height:calc(100% - 34px);width:auto;max-width:none;filter:drop-shadow(0 0 16px rgba(255,70,230,.28)) drop-shadow(0 0 4px rgba(60,240,255,.35))}
+.twins figcaption{font:600 12px/1 Poppins;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.hero.compact .in{position:relative;z-index:2}
+.hero.compact .in .tag{max-width:460px}
+@media(max-width:900px){
+ .hero.compact{display:flex;flex-direction:column;min-height:0}
+ .hero.compact .in{order:1;padding:110px 28px 20px}
+ .twins{order:2}
+ .twins{position:relative;right:auto;top:auto;bottom:auto;height:360px;justify-content:center;padding:0 20px 40px}
+}
 .ins{padding:56px 0 80px;text-align:center}
 .ins .lead{max-width:620px;margin:0 auto 6px;color:var(--mute)}
 .ibox{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:56px;align-items:center;max-width:980px;margin:34px auto 0}
@@ -65,10 +77,14 @@
 <header class="hero compact" id="top">
  <div class="pattern"></div>
  <div class="photo" style="background-image:url('https://images.zoogletools.com/s:bzglfiles/u/586824/a605f489f6457708af15164cd79ad58f247733f8/original/alk8977.jpg/!!/b%3AW1sicmVzaXplIiwxODAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg')"></div>
+ <div class="twins">
+  <figure><img src="img/guitaroud_clair.webp" alt="The light GuitarOud, in Tangier" style="height:calc((100% - 34px)/1.044)"><figcaption>Tangier</figcaption></figure>
+  <figure><img src="img/guitaroud_noir.webp" alt="The black GuitarOud, in Strasbourg"><figcaption>Strasbourg</figcaption></figure>
+ </div>
  <div class="in">
   <div class="kicker">The instruments</div>
   <h1>The GuitarOud</h1>
-  <p class="tag serif">An oud and a guitar, sharing one body. Built by hand by luthier Eric Stiegler.</p>
+  <p class="tag serif">An oud and a guitar, sharing one body. Built by hand by luthier Eric Stiegler. Two exist: one lives in Tangier, the other in Strasbourg.</p>
  </div>
 </header>
 
@@ -108,8 +124,6 @@
 
  </div>
  </div>
-
- <p class="twin">There are two of them: <b>one lives in Tangier, the other in Strasbourg.</b> This is the light one.</p>
 
  <div class="specs rv"><div class="spec"><b>Body</b><span>Cedro body, maple top and back</span></div><div class="spec"><b>Oud neck</b><span>Cedro neck, fretless ebony fretboard</span></div><div class="spec"><b>Guitar neck</b><span>Cedro neck, ebony fretboard, Graphtech nut</span></div><div class="spec"><b>Oud headstock</b><span>Schertler tuners</span></div><div class="spec"><b>Guitar headstock</b><span>Hipshot Grip-Lock tuners</span></div><div class="spec"><b>Neck pickup</b><span>Seymour Duncan P90 Antiquity</span></div><div class="spec"><b>Bridge pickup</b><span>PRS 57/08 Treble</span></div><div class="spec"><b>Guitar bridge</b><span>TonePros Tuneomatic</span></div><div class="spec"><b>Guitar tailpiece</b><span>TonePros Tuneomatic set</span></div><div class="spec"><b>Oud bridge</b><span>Ebony, with an L.R. Baggs MI-SI Acoustic Trio piezo</span></div><div class="spec"><b>Lazywall inlay</b><span>Pearl</span></div></div>
 </div></section>
