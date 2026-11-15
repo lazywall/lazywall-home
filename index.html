@@ -30,7 +30,11 @@
 
 <header class="hero" id="top">
  <div class="pattern"></div>
- <div class="cast" aria-hidden="true"><img class="c1" src="img/c_nao.png" alt=""><img class="c2" src="img/c_monz.png" alt=""><img class="c3" src="img/c_youssef.png" alt=""></div>
+ <div class="cast" id="cast" aria-hidden="true">
+ <div class="era e03"><img src="img/nao_2003.png" alt=""><img class="mid" src="img/monz_2003.png" alt=""><img src="img/youssef_2003.png" alt=""></div>
+ <div class="era e22"><img src="img/nao_2022.png" alt=""><img class="mid" src="img/monz_2022.png" alt=""><img src="img/youssef_2022.png" alt=""></div>
+</div>
+<div class="years" id="years"><button class="on" data-e="03">2003</button><i></i><button data-e="22">Today</button></div>
  <div class="in">
   <div class="kicker">Lazywall · Tangier · 2003 – today</div>
   <h1>As we<br><em>remember it</em></h1>
@@ -138,6 +142,10 @@
  ['kLwA2sYnM8o','9sOIr2BCatQ','DtRpRMCdnD0'].forEach(function(id){var d=document.createElement('div');d.className='yt';d.dataset.id=id;vg.appendChild(d)});
 })();
 </script>
+<script>(function(){var c=document.getElementById('cast'),y=document.getElementById('years');if(!c)return;var bs=y.querySelectorAll('button'),cur='03',t;
+function set(e){cur=e;c.className='cast '+(e==='22'?'now':'');for(var i=0;i<bs.length;i++)bs[i].className=bs[i].getAttribute('data-e')===e?'on':''}
+function auto(){clearInterval(t);if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;t=setInterval(function(){set(cur==='03'?'22':'03')},4500)}
+for(var i=0;i<bs.length;i++)bs[i].addEventListener('click',function(){set(this.getAttribute('data-e'));clearInterval(t)});auto()})();</script>
 <script src="site.js" defer></script>
 </body>
 </html>

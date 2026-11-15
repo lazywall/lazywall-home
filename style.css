@@ -214,3 +214,18 @@ nav ul a.pro{border-radius:999px}
 .hero:after{display:none}
 @media(max-width:900px){.cast{width:100%;right:0;opacity:.3;height:70%}}
 .cast img{max-width:36%;min-width:0}.cast{overflow:visible}
+
+/* time travel */
+.cast .era{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;transition:opacity 1.2s ease,filter 1.2s ease}
+.cast .e22{opacity:0;filter:blur(6px)}
+.cast.now .e22{opacity:1;filter:none}
+.cast.now .e03{opacity:0;filter:blur(6px)}
+.cast .era img{height:auto;max-height:100%;width:auto;max-width:36%}
+.cast .era .mid{z-index:2}
+.cast .era:first-child img:first-child{margin-right:-38px}.cast .era img:last-child{margin-left:-38px}
+.years{position:absolute;right:3%;bottom:18px;z-index:5;display:flex;align-items:center;gap:12px;width:44%;justify-content:center}
+.years i{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),var(--ember))}
+.years button{font:700 14px/1 Poppins,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);background:rgba(11,9,18,.7);border:1px solid var(--line);padding:9px 16px;border-radius:999px;cursor:pointer;transition:.3s}
+.years button.on{color:#0b0912;background:var(--gold);border-color:var(--gold);box-shadow:0 0 20px var(--glowC)}
+@media(max-width:900px){.years{width:100%;right:0}}
+.years{bottom:auto;top:92px}
