@@ -231,3 +231,19 @@ nav ul a.pro{border-radius:999px}
 .years{bottom:auto;top:92px}
 .cast{bottom:70px;height:calc(100% - 150px)}
 .years{top:auto;bottom:18px}
+
+/* van */
+.banner .side{display:flex;flex-direction:column;align-items:flex-start;min-width:300px}
+.road{position:relative;width:min(400px,100%);margin-bottom:22px;padding-bottom:14px}
+.road:after{content:"";position:absolute;left:-10%;right:-10%;bottom:6px;height:4px;border-radius:4px;background:repeating-linear-gradient(90deg,var(--gold) 0 26px,transparent 26px 44px);opacity:.8;box-shadow:0 0 14px var(--glowC)}
+.van{width:100%;height:auto;filter:drop-shadow(0 0 16px var(--glowM));animation:vanbob 2.4s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes vanbob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-.4deg)}}
+@media(prefers-reduced-motion:reduce){.van{animation:none}}
+@media(min-width:901px){.banner{flex-wrap:nowrap}.banner>div:first-child{flex:1}.banner .side{flex:none;width:420px;align-items:flex-end}.banner .next-ep{align-self:flex-end}.road{margin-left:auto}}
+
+/* craft */
+.craft{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;margin-top:70px}
+.craft img{width:100%;height:auto;filter:drop-shadow(0 0 22px var(--glowC))}
+.craft h2{font-size:clamp(30px,4vw,48px);margin:14px 0}
+.craft p{color:var(--mute);font-size:19px;max-width:440px}
+@media(max-width:900px){.craft{grid-template-columns:1fr;gap:26px;margin-top:50px}}
