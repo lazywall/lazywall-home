@@ -149,7 +149,7 @@ nav ul a.on{color:var(--gold);opacity:1}
 .trk em{font:600 11px Poppins;font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:0;transition:.25s}
 .trk a:hover{background:rgba(232,89,12,.08);padding-left:16px}
 .trk a:hover em{opacity:1}
-.covers{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;margin:38px auto 0;max-width:1100px;text-align:left}
+.covers{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;margin:38px auto 0;max-width:1100px;text-align:left}
 .covers a{display:block}
 .covers img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid var(--line);transition:.3s}
 .covers a:hover img{transform:translateY(-4px);border-color:var(--ember)}
