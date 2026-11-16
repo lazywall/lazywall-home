@@ -10,11 +10,14 @@
  document.querySelectorAll('.yt').forEach(function(el){
   if(!el.querySelector('.play'))el.innerHTML='<div class="play"></div>';
   el.onclick=function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+el.dataset.id+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;el.innerHTML='';el.appendChild(f);el.onclick=null;el.style.cursor='default'};
-  // best thumbnail: maxres if it exists, else sd (YouTube serves a 120x90 placeholder when maxres is missing)
-  var base='https://img.youtube.com/vi/'+el.dataset.id+'/',im=new Image();
-  im.onload=function(){el.style.backgroundImage='url('+base+(im.naturalWidth>300?'maxresdefault':'sddefault')+'.jpg)'};
-  im.onerror=function(){el.style.backgroundImage='url('+base+'hqdefault.jpg)'};
-  im.src=base+'maxresdefault.jpg';
+  // best thumbnail: try maxres, then sd, then hq. YouTube serves a tiny (<=120px) grey placeholder when a size does not exist.
+  var base='https://img.youtube.com/vi/'+el.dataset.id+'/',sizes=['maxresdefault','sddefault','hqdefault'];
+  (function tryNext(i){
+   var im=new Image(),n=sizes[i];
+   im.onload=function(){if(im.naturalWidth>300||i===sizes.length-1)el.style.backgroundImage='url('+base+n+'.jpg)';else tryNext(i+1)};
+   im.onerror=function(){if(i<sizes.length-1)tryNext(i+1)};
+   im.src=base+n+'.jpg';
+  })(0);
  });
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.1});
  document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
