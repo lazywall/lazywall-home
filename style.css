@@ -274,3 +274,7 @@ nav ul a.pro{border-radius:999px}
 .hires .btn{margin-top:16px}
 @media(max-width:900px){.pols{column-count:2;column-gap:22px}}
 @media(max-width:560px){.pols{column-count:1;padding:10px 18px}.pol .cap{font-size:24px}}
+
+.k.soon{cursor:default;opacity:.72}
+.k.soon:hover{transform:none;border-color:var(--line);box-shadow:0 0 0 1px var(--line)}
+.k.soon span{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--gold)}
